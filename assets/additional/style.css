@@ -1,0 +1,51 @@
+.footer-section-list {
+    @media (max-width: 1023px) {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid #d5d5d7;
+      margin-bottom: 6px;
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 10px;
+        height: 10px;
+        top: 6px;
+        right: 0;
+        z-index: 2;
+        background-image: url("data:image/svg+xml,%3Csvg aria-hidden='true' role='img' height='10' width='10' viewBox='0 0 448 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath fill='%23fff' d='M416 208H272V64c0-17.67-14.33-32-32-32h-32c-17.67 0-32 14.33-32 32v144H32c-17.67 0-32 14.33-32 32v32c0 17.67 14.33 32 32 32h144v144c0 17.67 14.33 32 32 32h32c17.67 0 32-14.33 32-32V304h144c17.67 0 32-14.33 32-32v-32c0-17.67-14.33-32-32-32z'%3E%3C/path%3E%3C/svg%3E");
+      }
+      h2 {
+        position: relative;
+        padding-top: 6px;
+        padding-bottom: 6px;
+        z-index: 2;
+        background-color: #1b1833;
+      }
+      p {
+        margin: 0;
+        overflow: hidden;
+        padding-top: 5px;
+        padding-bottom: 16px;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        visibility: hidden;
+        z-index: -1;
+        transform: translateY(-100px);
+        will-change: transform;
+      }
+      &.active::after {
+        transition: all 0.3s ease-in-out;
+        transform: rotate(45deg) scale(1.08);
+      }
+      &.active p {
+        position: static;
+        visibility: visible;
+        z-index: 1;
+        transform: none;
+        transition: transform 300ms ease;
+      }
+    }
+  }
