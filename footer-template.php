@@ -1,14 +1,27 @@
 <?php
-$base_url = "https://" . $_SERVER['HTTP_HOST'];
+if (!defined('AIRPLANE_MODE') || AIRPLANE_MODE === false) {
+    // Logic to fetch the footer content from GitHub Gist
+    $response = wp_remote_get('https://natthasath.github.io/plugin-sync-footer-wordpress/footer-template.php');
+    if (is_wp_error($response)) {
+        return;
+    }
+    $content = wp_remote_retrieve_body($response);
+    // Process the content here
+} else {
+    // Fallback logic when Airplane Mode is enabled
+    error_log('Airplane Mode is enabled. Footer sync is disabled.');
+}
 ?>
 
-<link rel='stylesheet' id='wp-block-library-css' href='<?php echo $base_url; ?>/nidacenter/wp-includes/css/dist/block-library/style.min.css?ver=6.7.1' type='text/css' media='all' />
-<link rel='stylesheet' id='seed-social-css' href='<?php echo $base_url; ?>/nidacenter/wp-content/plugins/seed-social/style.css?ver=2021.02' type='text/css' media='all' />
-<link rel='stylesheet' id='p-m-css' href='<?php echo $base_url; ?>/nidacenter/wp-content/themes/plant3/assets/css/style-m.css?ver=6.7.1' type='text/css' media='all' />
-<link rel='stylesheet' id='p-d-css' href='<?php echo $base_url; ?>/nidacenter/wp-content/themes/plant3/assets/css/style-d.css?ver=6.7.1' type='text/css' media='(min-width: 1024px)' />
-<link rel='stylesheet' id='f-m-css' href='<?php echo $base_url; ?>/nidacenter/wp-content/themes/nidacenter/assets/css/style-m.css?ver=6.7.1' type='text/css' media='all' />
-<link rel='stylesheet' id='f-d-css' href='<?php echo $base_url; ?>/nidacenter/wp-content/themes/nidacenter/assets/css/style-d.css?ver=6.7.1' type='text/css' media='(min-width: 1024px)' />
-<link rel='stylesheet' id='generateblocks-css' href='<?php echo $base_url; ?>/nidacenter/wp-content/uploads/generateblocks/style-2.css?ver=1734922017' type='text/css' media='all' />
+<!-- <link rel='stylesheet' id='wp-block-library-css' href='https://natthasath.github.io/plugin-sync-footer-wordpress/assets/block-library/style.min.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='seed-social-css' href='https://natthasath.github.io/plugin-sync-footer-wordpress/assets/seed-social/style.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='p-m-css' href='https://natthasath.github.io/plugin-sync-footer-wordpress/assets/plant3/style-m.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='p-d-css' href='https://natthasath.github.io/plugin-sync-footer-wordpress/assets/plant3/style-d.css' type='text/css' media='(min-width: 1024px)' /> -->
+<!-- <link rel='stylesheet' id='f-m-css' href='https://natthasath.github.io/plugin-sync-footer-wordpress/assets/nidacenter/style-m.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='f-d-css' href='https://natthasath.github.io/plugin-sync-footer-wordpress/assets/nidacenter/style-d.css' type='text/css' media='(min-width: 1024px)' /> -->
+<!-- <link rel='stylesheet' id='generateblocks-css' href='https://natthasath.github.io/plugin-sync-footer-wordpress/assets/generateblocks/style-2.css' type='text/css' media='all' /> -->
+<!-- <link rel='stylesheet' id='additional' href='https://natthasath.github.io/plugin-sync-footer-wordpress/assets/additional/style.css' type='text/css' media='all' /> -->
+<link rel='stylesheet' id='additional' href='https://natthasath.github.io/plugin-sync-footer-wordpress/assets/footer.css' type='text/css' media='all' />
 
 <div class="gb-container gb-container-926e20d5 alignfull">
 <div class="gb-container gb-container-b3f396ac"><div class="gb-inside-container">
